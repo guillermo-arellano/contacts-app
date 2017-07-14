@@ -93,3 +93,8 @@
         </li>
     </ul>
 </div>
+<ul>
+    <li *ngFor="let contact of contacts | async">
+        {{contact.id}}, {{contact.name}} 
+    </li>
+</ul>

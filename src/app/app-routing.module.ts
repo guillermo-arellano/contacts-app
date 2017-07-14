@@ -20,5 +20,6 @@ export class AppRoutingModule { }
 
 export const routedComponents = [
     AppComponent,
-    PageNotFoundComponent
+    ContactsListComponent,
+    PageNotFoundComponent,
 ];
