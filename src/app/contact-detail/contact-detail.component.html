@@ -1,10 +1,17 @@
-<!-- contacts list  -->
-<div id="contacts" class="panel-collapse collapse show" aria-expanded="true">
+<!-- Contact screen  -->
+<div id="contact-detail" class="panel-collapse collapse show" aria-expanded="true">
     <ul class="list-group pull-down" id="contact-list">
         <li class="list-group-item list-group-item-header">
-            <div class="row mx-auto pt-3">
-                <h3>Contacts</h3>
+            <div class="row pt-3 align-items-center">
+                <a href="">
+                  <h3>< Contacts</h3>
+                </a>
+                <a href="" class="float-right">
+                  <img src="/assets/img/stars/Favorite-False.png" 
+                      srcset="/assets/img/stars/Favorite-False.png 350w, /assets/img/stars/Favorite-False@2x.png 700w, /assets/img/stars/Favorite-False@3x.png 1100w" alt="" class="float-right">
+                </a>
             </div>
+
         </li>
         <li class="list-group-item list-group-item-header">FAVORITE CONTACTS</li>
         <li class="list-group-item" *ngFor="let contact of contacts | favoritesFilter$:true | async">
@@ -23,33 +30,6 @@
                         <div class="px-1">
                             <img src="/assets/img/stars/Favorite-True.png" 
                                 srcset="/assets/img/stars/Favorite-True.png 350w, /assets/img/stars/Favorite-True@2x.png 700w, /assets/img/stars/Favorite-True@3x.png 1100w" alt="" class="mx-auto d-block img-fluid">
-                        </div>
-                        <div class="px-1">
-                            <label class="name lead font-weight-bold mb-0">
-                                {{contact.name}}
-                            </label>
-                            <br>
-                            <span class="text-muted">{{contact.companyName}}</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </li>
-        <li class="list-group-item list-group-item-header">OTHER CONTACTS</li>
-        <li class="list-group-item" *ngFor="let contact of contacts | favoritesFilter$:false | async">
-            <div class="row w-100 align-items-center">
-                <div class="col-4 px-0">
-                    <img [src]="contact.smallImageURL" *ngIf="contact.smallImageURL;else placeholderImage" class="mx-auto d-block img-fluid" onError="this.src='/assets/img/profiles/User-Icon-Small@2x.png'">
-                     <ng-template #placeholderImage>
-                       <img src="/assets/img/profiles/User-Icon-Small.png" 
-                        srcset="/assets/img/profiles/User-Icon-Small.png 320w, /assets/img/profiles/User-Icon-Small@2x.png 672w, /assets/img/profiles/User-Icon-Small@3x.png 1024w" alt="" class="mx-auto d-block img-fluid"> 
-                    </ng-template> 
-                </div>
-                <div class="col-8 text-left">
-                    <div class="row align-items-center">
-                        <div class="px-1">
-                            <img src="/assets/img/stars/Favorite-Mask.png" 
-                                srcset="/assets/img/stars/Favorite-Mask.png 350w, /assets/img/stars/Favorite-Mask@2x.png 700w, /assets/img/stars/Favorite-Mask@3x.png 1100w" alt="" class="mx-auto d-block img-fluid">
                         </div>
                         <div class="px-1">
                             <label class="name lead font-weight-bold mb-0">
