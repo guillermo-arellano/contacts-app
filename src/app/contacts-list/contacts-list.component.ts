@@ -16,8 +16,16 @@ export class ContactsListComponent implements OnInit {
   constructor(private contactsService: ContactsService) { }
 
   ngOnInit() {
-    this.contacts = this.contactsService.getContacts();
-    
+    this.contacts = this.contactsService
+      .getContacts()
+      .map(items => items.sort(this.compareFn));
   }
 
+  compareFn = (a, b) => {
+    if (a.name < b.name)
+      return -1;
+    if (a.name > b.name)
+      return 1;
+    return 0;
+  };
 }
