@@ -9,7 +9,6 @@ let contactsUrl = CONFIG.baseUrls.contacts;
 
 @Injectable()
 export class ContactsService {
-  private url = "api/contacts.json";
   constructor(private http: Http) { }
 
   getContact(id: number) {
@@ -21,7 +20,6 @@ export class ContactsService {
   getContacts() {
     return this.http
       .get(contactsUrl)
-      .map((response: Response) => <Contact[]>response.json())
-      .do(data => console.log('All: ' + JSON.stringify(data)));
+      .map((response: Response) => <Contact[]>response.json());
   }
 }

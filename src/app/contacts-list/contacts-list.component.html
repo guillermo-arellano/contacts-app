@@ -29,72 +29,28 @@
             </div>
         </li>
         <li class="list-group-item list-group-item-header">OTHER CONTACTS</li>
-        <li class="list-group-item">
-            <div class="row w-100">
-                <div class="col-12 col-sm-6 col-md-3 px-0">
-                    <img src="http://demos.themes.guide/bodeo/assets/images/users/m105.jpg" alt="Seth Frazier" class="img-fluid rounded-circle d-block mx-auto">
+        <li class="list-group-item" *ngFor="let contact of contacts | async as list">
+            <div class="row w-100 align-items-center">
+                <div class="col-4 px-0">
+                    <img src="/assets/img/profiles/User-Icon-Small.png" 
+                    srcset="/assets/img/profiles/User-Icon-Small.png 320w, /assets/img/profiles/User-Icon-Small@2x.png 672w, /assets/img/profiles/User-Icon-Small@3x.png 1024w" alt="" class="mx-auto d-block img-fluid">
                 </div>
-                <div class="col-12 col-sm-6 col-md-9 text-center text-sm-left">
-                    <span class="name lead">Seth Frazier</span>
-                    <br>
-                    <span class="fa fa-map-marker fa-fw text-muted" data-toggle="tooltip" title="" data-original-title="7396 E North St"></span>
-                    <span class="text-muted">7396 E North St</span>
-                    <br>
-                    <span class="fa fa-phone fa-fw text-muted" data-toggle="tooltip" title="" data-original-title="(560) 180-4143"></span>
-                    <span class="text-muted small">(560) 180-4143</span>
-                    <br>
-                    <span class="fa fa-envelope fa-fw text-muted" data-toggle="tooltip" title="" data-original-title="seth.frazier@example.com"></span>
-                    <span class="text-muted small text-truncate">seth.frazier@example.com</span>
-                </div>
-            </div>
-        </li>
-        <li class="list-group-item">
-            <div class="row w-100">
-                <div class="col-12 col-sm-6 col-md-3 px-0">
-                    <img src="http://demos.themes.guide/bodeo/assets/images/users/w102.jpg" alt="Rosemary Porter" class="img-fluid rounded-circle d-block mx-auto">
-                </div>
-                <div class="col-12 col-sm-6 col-md-9 text-center text-sm-left">
-                    <span class="fa fa-envelope fa-lg text-danger float-right" title="left you a message"></span>
-                    <span class="name lead">Rosemary Porter</span>
-                    <br> <span class="fa fa-map-marker fa-fw text-muted" data-toggle="tooltip" title="" data-original-title="5267 Cackson St"></span>
-                    <span class="text-muted">5267 Cackson St</span>
-                    <br>
-                    <span class="fa fa-phone fa-fw text-muted" data-toggle="tooltip" title="" data-original-title="(497) 160-9776"></span>
-                    <span class="text-muted small">(497) 160-9776</span>
-                    <br>
-                    <span class="fa fa-envelope fa-fw text-muted" data-toggle="tooltip" title="" data-original-title="rosemary.porter@example.com"></span>
-                    <span class="text-muted small text-truncate">rosemary.porter@example.com</span>
-                    <br>
-
-                </div>
-            </div>
-        </li>
-        <li class="list-group-item">
-            <div class="row w-100">
-                <div class="col-12 col-sm-6 col-md-3 px-0">
-                    <img src="http://demos.themes.guide/bodeo/assets/images/users/w104.jpg" alt="Debbie Schmidt" class="img-fluid rounded-circle d-block mx-auto">
-                </div>
-                <div class="col-12 col-sm-6 col-md-9 text-center text-sm-left">
-                    <label class="name lead">Debbie Schmidt</label>
-                    <br>
-
-                    <span class="fa fa-fw fa-map-marker fa-fw text-muted" data-toggle="tooltip" title="" data-original-title="3903 W Alexander Rd"></span>
-                    <span class="text-muted">3903 W Alexander Rd</span>
-                    <br>
-
-                    <span class="fa fa-fw fa-phone fa-fw text-muted" data-toggle="tooltip" title="" data-original-title="(867) 322-1852"></span>
-                    <span class="text-muted small">(867) 322-1852</span>
-                    <br>
-
-                    <span class="fa fa-fw fa-envelope fa-fw text-muted" data-toggle="tooltip" title="" data-original-title="debbie.schmidt@example.com"></span>
-                    <span class="text-muted small text-truncate">debbie.schmidt@example.com</span>
+                <div class="col-8 text-left">
+                    <div class="row align-items-center">
+                        <div class="px-1">
+                            <img src="/assets/img/stars/Favorite-Mask.png" 
+                                srcset="/assets/img/stars/Favorite-Mask.png 350w, /assets/img/stars/Favorite-Mask@2x.png 700w, /assets/img/stars/Favorite-Mask@3x.png 1100w" alt="" class="mx-auto d-block img-fluid">
+                        </div>
+                        <div class="px-1">
+                            <label class="name lead font-weight-bold mb-0">
+                                {{contact.name}}
+                            </label>
+                            <br>
+                            <span class="text-muted">{{contact.companyName}}</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </li>
     </ul>
 </div>
-<ul>
-    <li *ngFor="let contact of contacts | async">
-        {{contact.id}}, {{contact.name}} 
-    </li>
-</ul>
