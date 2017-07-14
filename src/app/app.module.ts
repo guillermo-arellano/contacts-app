@@ -6,11 +6,13 @@ import './rxjs-extensions';
 import { AppComponent } from './app.component';
 import { AppRoutingModule, routedComponents } from './app-routing.module';
 import { ContactsService } from './contacts-list/contacts.service';
+import { FilterPipe } from './contacts-list/filter.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
-    routedComponents
+    routedComponents,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
