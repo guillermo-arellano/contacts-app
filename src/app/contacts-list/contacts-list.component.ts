@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
-import { ContactsService } from './contacts.service';
-import { Contact } from './model';
+import { ContactsService } from '../contacts.service';
+import { Contact } from '../model';
 
 @Component({
   moduleId: module.id,

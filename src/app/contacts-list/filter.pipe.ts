@@ -1,7 +1,7 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
-import { Contact } from './model';
+import { Contact } from '../model';
 
 @Pipe({
   name: 'favoritesFilter$'
