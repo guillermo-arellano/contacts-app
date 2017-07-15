@@ -2,6 +2,13 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.2.0.
 
+## Downloading and running the app
+
+1 Download the Zip file version of this code from this Github repository
+2 Extract the contents into a folder on your documents or desktop machine
+3 Open a command terminal and navigate to the extracted contents repository
+4 Run `
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
