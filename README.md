@@ -2,20 +2,22 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.2.0.
 
+## Prerequisites
+
+Both the CLI and generated project have dependencies that require Node 6.9.0 or higher, together with NPM 3 or higher. Click the [link] (https://nodejs.org/en/) and go install Node/NPM before you continue.
+
 ## Downloading and running the app
 
-1 Download the Zip file version of this code from this Github repository
-2 Extract the contents into a folder on your documents or desktop machine
-3 Open a command terminal and navigate to the extracted contents repository
-4 Run `
+1. Download the Zip file version of this code from this Github repository
+2. Extract the contents into a folder on your documents or desktop machine
+3. Open a command terminal and navigate to the extracted contents folder directory
+4. Run `npm install -g @angular/cli` to install the Angular CLI (make sure Node and NPM are already installed!)
+5. Run `npm install` to install of the dependencies for the app
+6. To run, follow the instructions below to initiate the development server 
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|module`.
+Run `ng serve -o` for a dev server. Navigate to `http://localhost:4200/` if a browser doesn't open up. The app will automatically reload if you change any of the source files.
 
 ## Build
 
