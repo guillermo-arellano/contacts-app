@@ -1,0 +1,22 @@
+<!-- Contact screen  -->
+<div id="contact-detail" class="panel-collapse collapse show" aria-expanded="true">
+    <ul class="list-group pull-down" id="contact-list">
+        <li class="list-group-item list-group-item-header">
+            <div class="row pt-3 align-items-center">
+                <a href=""  [routerLink]="['/contacts-list']">
+                  <h3>< Contacts</h3>
+                </a>
+                <a href="" class="">
+                  <img src="/assets/img/stars/Favorite-False.png" 
+                      srcset="/assets/img/stars/Favorite-False.png 350w, /assets/img/stars/Favorite-False@2x.png 700w, /assets/img/stars/Favorite-False@3x.png 1100w" alt="">
+                </a>
+            </div>
+        </li>
+
+        <li class="list-group-item">
+            <div class="row w-100 align-items-center">
+               {{contact | json}}
+            </div>
+        </li>
+    </ul>
+</div>

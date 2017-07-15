@@ -11,10 +11,9 @@ let contactsUrl = CONFIG.baseUrls.contacts;
 export class ContactsService {
   constructor(private http: Http) { }
 
-  getContact(id: number) {
-    // TODO
-    // return this.getCharacters()
-    //   .map(characters => characters.find(character => character.id === id));
+  getContact(id: number) {  
+    return this.getContacts()
+      .map(contacts => contacts.find(contact => contact.id === id));
   }
 
   getContacts() {

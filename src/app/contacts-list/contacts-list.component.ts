@@ -12,6 +12,7 @@ import { Contact } from './model';
 })
 export class ContactsListComponent implements OnInit {
   contacts: Observable<Contact[]>;
+  selectedContact: Contact;
 
   constructor(private contactsService: ContactsService) { }
 
@@ -21,6 +22,9 @@ export class ContactsListComponent implements OnInit {
       .map(items => items.sort(this.compareFn));
   }
 
+  select(contact: Contact) {
+    this.selectedContact = contact;
+  }
   compareFn = (a, b) => {
     if (a.name < b.name)
       return -1;
