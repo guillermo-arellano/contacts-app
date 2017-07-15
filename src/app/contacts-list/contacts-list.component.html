@@ -39,11 +39,13 @@
         <li class="list-group-item" *ngFor="let contact of contacts | favoritesFilter$:false | async">
             <div class="row w-100 align-items-center">
                 <div class="col-4 px-0">
-                    <img [src]="contact.smallImageURL" *ngIf="contact.smallImageURL;else placeholderImage" class="mx-auto d-block img-fluid" onError="this.src='/assets/img/profiles/User-Icon-Small@2x.png'">
-                     <ng-template #placeholderImage>
-                       <img src="/assets/img/profiles/User-Icon-Small.png" 
-                        srcset="/assets/img/profiles/User-Icon-Small.png 320w, /assets/img/profiles/User-Icon-Small@2x.png 672w, /assets/img/profiles/User-Icon-Small@3x.png 1024w" alt="" class="mx-auto d-block img-fluid"> 
-                    </ng-template> 
+                    <a href="" [routerLink]="['/contact', contact.id]">
+                        <img [src]="contact.smallImageURL" *ngIf="contact.smallImageURL;else placeholderImage" class="mx-auto d-block img-fluid" onError="this.src='/assets/img/profiles/User-Icon-Small@2x.png'">
+                        <ng-template #placeholderImage>
+                        <img src="/assets/img/profiles/User-Icon-Small.png" 
+                            srcset="/assets/img/profiles/User-Icon-Small.png 320w, /assets/img/profiles/User-Icon-Small@2x.png 672w, /assets/img/profiles/User-Icon-Small@3x.png 1024w" alt="" class="mx-auto d-block img-fluid"> 
+                        </ng-template> 
+                    </a>
                 </div>
                 <div class="col-8 text-left">
                     <div class="row align-items-center">

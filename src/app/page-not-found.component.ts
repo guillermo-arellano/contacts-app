@@ -4,8 +4,8 @@ import { Component } from '@angular/core';
   moduleId: module.id,
   template: `
     <article class="template animated slideInRight">
-      <h4>Inconceivable!</h4>
-      <div>I do not think this page is where you think it is.</div>
+      <h4>Page Not Found</h4>
+      <div>There is no page or template matching the address.</div>
     </article>
   `
 })
