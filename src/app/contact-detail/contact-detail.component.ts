@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { Contact } from '../model';
@@ -15,10 +15,11 @@ interface IPhoneNumbers {
   templateUrl: './contact-detail.component.html',
   styleUrls: ['./contact-detail.component.scss']
 })
-export class ContactDetailComponent implements OnInit {
+export class ContactDetailComponent implements OnInit,OnDestroy {
   contact: Contact;
   phoneNumbers: IPhoneNumbers[];
   dateFromString: Date;
+
 
   src: string = "/assets/img/profiles/User-Icon-Large@2x.png";
   
@@ -38,6 +39,10 @@ export class ContactDetailComponent implements OnInit {
           .subscribe(id => this.getContact());
       }
     }
+
+  ngOnDestroy () {
+    
+  }
 
   private getContact(){
     this.contactsService.getContact(this.id)
@@ -77,6 +82,10 @@ export class ContactDetailComponent implements OnInit {
       birthdate += " 12:00:00 GMT";
       this.dateFromString = new Date(birthdate);
     }
+  }
+
+  toggleFavorite() {
+    this.contact.isFavorite = !this.contact.isFavorite;
   }
 
 }

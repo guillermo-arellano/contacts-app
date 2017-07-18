@@ -10,10 +10,14 @@
                     </a>
                 </div>
                 <div id="favorite-false-float-right"> 
-                    <a href="" class="">
-                        <img src="/assets/img/stars/Favorite-False.png" 
-                            srcset="/assets/img/stars/Favorite-False.png 350w, /assets/img/stars/Favorite-False@2x.png 700w, /assets/img/stars/Favorite-False@3x.png 1100w" alt="" class="float-right">
-                    </a>
+                    <div (click)="toggleFavorite()">
+                        <img *ngIf="!contact?.isFavorite;else displayFavoriteStarTemplate" src="/assets/img/stars/Favorite-False.png" 
+                            srcset="/assets/img/stars/Favorite-False.png 350w, /assets/img/stars/Favorite-False@2x.png 700w, /assets/img/stars/Favorite-False@3x.png 1024w" alt="" class="float-right">
+                        <ng-template #displayFavoriteStarTemplate>
+                            <img src="/assets/img/stars/Favorite-True.png" 
+                            srcset="/assets/img/stars/Favorite-True.png 350w, /assets/img/stars/Favorite-True@2x.png 700w, /assets/img/stars/Favorite-True@3x.png 1024w" alt="" class="float-right">
+                        </ng-template>
+                    </div>
                 </div>
             </div>
         </li>
