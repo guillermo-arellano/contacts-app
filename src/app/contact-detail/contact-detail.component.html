@@ -50,7 +50,7 @@
         </li>
         <!-- /Contact Phone numbers -->
         <!-- Address info  -->
-        <li class="list-group-item">
+        <li *ngIf="contact.address" class="list-group-item">
             <div class="row">
                 <div class="col d-block text-muted">
                     ADDRESS:
@@ -67,7 +67,7 @@
         </li>
         <!-- /Address info -->
         <!-- Birthdate info  -->
-        <li class="list-group-item">
+        <li *ngIf="contact.birthdate" class="list-group-item">
             <div class="row">
                 <div class="col d-block text-muted">
                     BIRTHDATE:
@@ -80,5 +80,17 @@
             </div>
         </li>
         <!-- /Birthdate info  -->
+        <!-- Email info -->
+        <li *ngIf="contact.emailAddress" class="list-group-item">
+            <div class="row">
+                <div class="col d-block text-muted">
+                    EMAIL:
+                </div>
+            </div>
+            <div class="col font-weight-bold">
+                {{contact.emailAddress}}
+            </div>
+        </li>
+        <!-- /Email info -->
     </ul>
 </div>
