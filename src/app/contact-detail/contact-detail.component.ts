@@ -79,7 +79,7 @@ export class ContactDetailComponent implements OnInit,OnDestroy {
 
   private setDate(birthdate: string) {
     if (birthdate != null || undefined) {
-      birthdate += " 12:00:00 GMT";
+      birthdate += "T12:00:00";
       this.dateFromString = new Date(birthdate);
     }
   }
