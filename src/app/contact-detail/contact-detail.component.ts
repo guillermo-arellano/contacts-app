@@ -18,6 +18,7 @@ interface IPhoneNumbers {
 export class ContactDetailComponent implements OnInit {
   contact: Contact;
   phoneNumbers: IPhoneNumbers[];
+  dateFromString: Date;
 
   src: string = "/assets/img/profiles/User-Icon-Large@2x.png";
   
@@ -52,6 +53,7 @@ export class ContactDetailComponent implements OnInit {
     if (contact) {
       this.contact = contact;
       this.setPhoneNumbers(this.contact.phone);
+      this.setDate(this.contact.birthdate);
     } else {
       this.gotoContacts();
     }
@@ -67,6 +69,13 @@ export class ContactDetailComponent implements OnInit {
         });
       });
       this.phoneNumbers = array;
+    }
+  }
+
+  private setDate(birthdate: string) {
+    if (birthdate != null || undefined) {
+      birthdate += " 12:00:00 GMT";
+      this.dateFromString = new Date(birthdate);
     }
   }
 

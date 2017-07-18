@@ -34,13 +34,51 @@
         <!-- Contact Phone numbers  -->
         <li *ngFor="let phoneNumber of phoneNumbers"  class="list-group-item">
             <div class="row">
-                <div class="col-12 text-muted">
-                    {{phoneNumber.phoneType}}  {{phoneNumber.number}}
+                <div class="col d-block text-muted">
+                    PHONE:
+                </div>
+            </div>
+            <div class="w-100"></div>
+                <div class="col">
+                    <div class="d-inline text-left font-weight-bold">
+                        {{phoneNumber.number}}
+                    </div>
+                    <div class="d-inline text-right">
+                        {{phoneNumber.phoneType}}
+                    </div>
+                </div>
+        </li>
+        <!-- /Contact Phone numbers -->
+        <!-- Address info  -->
+        <li class="list-group-item">
+            <div class="row">
+                <div class="col d-block text-muted">
+                    ADDRESS:
+                </div>
+            </div>
+            <div class="col font-weight-bold">
+                <div class="">
+                    {{contact.address.street}}
+                </div>
+                <div class="">
+                    {{contact.address.city}}, {{contact.address.state}} {{contact.address.zipCode}}, {{contact.address.country}}
                 </div>
             </div>
         </li>
-        <!-- /Contact Phone numbers -->
-
-
+        <!-- /Address info -->
+        <!-- Birthdate info  -->
+        <li class="list-group-item">
+            <div class="row">
+                <div class="col d-block text-muted">
+                    BIRTHDATE:
+                </div>
+            </div>
+            <div class="col font-weight-bold">
+                <div class="">
+                    {{dateFromString | date:'longDate'}}
+                </div>
+            </div>
+        </li>
+        <!-- /Birthdate info  -->
     </ul>
 </div>
