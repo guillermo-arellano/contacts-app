@@ -21,13 +21,13 @@
         <li class="list-group-item justify-content-center">
             <div class="row">
                 <div class="col-12">
-                    <img [src]="contact.largeImageURL" onError="this.src='/assets/img/profiles/User-Icon-Large@2x.png'" alt="" class="mx-auto d-block img-fluid">
+                    <img [src]="contact?.largeImageURL" onError="this.src='/assets/img/profiles/User-Icon-Large@2x.png'" alt="" class="mx-auto d-block img-fluid">
                 </div>
                 <div class="col-12 text-center px-1">
                      <h4 class="font-weight-bold">
-                         {{contact.name}}
+                         {{contact?.name}}
                      </h4>
-                    <span class="text-muted">{{contact.companyName}}</span>
+                    <span class="text-muted">{{contact?.companyName}}</span>
                 </div>
             </div>
         </li>
@@ -50,7 +50,7 @@
         </li>
         <!-- /Contact Phone numbers -->
         <!-- Address info  -->
-        <li *ngIf="contact.address" class="list-group-item">
+        <li *ngIf="contact?.address" class="list-group-item">
             <div class="row">
                 <div class="col d-block text-muted">
                     ADDRESS:
@@ -67,7 +67,7 @@
         </li>
         <!-- /Address info -->
         <!-- Birthdate info  -->
-        <li *ngIf="contact.birthdate" class="list-group-item">
+        <li *ngIf="contact?.birthdate" class="list-group-item">
             <div class="row">
                 <div class="col d-block text-muted">
                     BIRTHDATE:
@@ -81,7 +81,7 @@
         </li>
         <!-- /Birthdate info  -->
         <!-- Email info -->
-        <li *ngIf="contact.emailAddress" class="list-group-item">
+        <li *ngIf="contact?.emailAddress" class="list-group-item">
             <div class="row">
                 <div class="col d-block text-muted">
                     EMAIL:
