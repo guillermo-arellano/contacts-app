@@ -31,5 +31,16 @@
                 </div>
             </div>
         </li>
+        <!-- Contact Phone numbers  -->
+        <li *ngFor="let phoneNumber of phoneNumbers"  class="list-group-item">
+            <div class="row">
+                <div class="col-12 text-muted">
+                    {{phoneNumber.phoneType}}  {{phoneNumber.number}}
+                </div>
+            </div>
+        </li>
+        <!-- /Contact Phone numbers -->
+
+
     </ul>
 </div>

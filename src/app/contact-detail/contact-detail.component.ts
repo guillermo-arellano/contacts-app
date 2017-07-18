@@ -4,6 +4,12 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Contact } from '../model';
 import { ContactsService } from '../contacts.service';
 
+
+interface IPhoneNumbers {
+    phoneType: string;
+    number: string;
+}
+
 @Component({
   selector: 'app-contact-detail',
   templateUrl: './contact-detail.component.html',
@@ -11,6 +17,8 @@ import { ContactsService } from '../contacts.service';
 })
 export class ContactDetailComponent implements OnInit {
   contact: Contact;
+  phoneNumbers: IPhoneNumbers[];
+
   src: string = "/assets/img/profiles/User-Icon-Large@2x.png";
   
   private id: any;
@@ -43,8 +51,22 @@ export class ContactDetailComponent implements OnInit {
   private setDisplayContact(contact: Contact) {
     if (contact) {
       this.contact = contact;
+      this.setPhoneNumbers(this.contact.phone);
     } else {
       this.gotoContacts();
+    }
+  }
+
+  private setPhoneNumbers (phoneObj: any) {
+    if (phoneObj) {
+      let array = [];
+      Object.keys(phoneObj).forEach( key => {
+        array.push({
+          phoneType: key, 
+          number: phoneObj[key]
+        });
+      });
+      this.phoneNumbers = array;
     }
   }
 
