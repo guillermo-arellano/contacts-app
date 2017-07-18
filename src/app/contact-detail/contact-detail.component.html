@@ -4,13 +4,17 @@
         <!-- Contact Details page header  -->
         <li class="list-group-item list-group-item-header">
             <div class="row pt-3 align-items-center">
-                <a href=""  [routerLink]="['/contacts-list']">
-                  <h3>< Contacts</h3>
-                </a>
-                <a href="" class="">
-                  <img src="/assets/img/stars/Favorite-False.png" 
-                      srcset="/assets/img/stars/Favorite-False.png 350w, /assets/img/stars/Favorite-False@2x.png 700w, /assets/img/stars/Favorite-False@3x.png 1100w" alt="">
-                </a>
+                <div>
+                    <a href=""  [routerLink]="['/contacts-list']">
+                        <h3>< Contacts</h3>
+                    </a>
+                </div>
+                <div id="favorite-false-float-right"> 
+                    <a href="" class="">
+                        <img src="/assets/img/stars/Favorite-False.png" 
+                            srcset="/assets/img/stars/Favorite-False.png 350w, /assets/img/stars/Favorite-False@2x.png 700w, /assets/img/stars/Favorite-False@3x.png 1100w" alt="" class="float-right">
+                    </a>
+                </div>
             </div>
         </li>
         <!-- /Contact Details page header  -->
