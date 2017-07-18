@@ -1,22 +1,103 @@
 <!-- Contact screen  -->
 <div id="contact-detail" class="panel-collapse collapse show" aria-expanded="true">
     <ul class="list-group pull-down" id="contact-list">
+        <!-- Contact Details page header  -->
         <li class="list-group-item list-group-item-header">
             <div class="row pt-3 align-items-center">
-                <a href=""  [routerLink]="['/contacts-list']">
-                  <h3>< Contacts</h3>
-                </a>
-                <a href="" class="">
-                  <img src="/assets/img/stars/Favorite-False.png" 
-                      srcset="/assets/img/stars/Favorite-False.png 350w, /assets/img/stars/Favorite-False@2x.png 700w, /assets/img/stars/Favorite-False@3x.png 1100w" alt="">
-                </a>
+                <div>
+                    <a href=""  [routerLink]="['/contacts-list']">
+                        <h3>< Contacts</h3>
+                    </a>
+                </div>
+                <div id="favorite-false-float-right"> 
+                    <div (click)="toggleFavorite()">
+                        <img *ngIf="!contact?.isFavorite;else displayFavoriteStarTemplate" src="/assets/img/stars/Favorite-False.png" 
+                            srcset="/assets/img/stars/Favorite-False.png 350w, /assets/img/stars/Favorite-False@2x.png 700w, /assets/img/stars/Favorite-False@3x.png 1024w" alt="" class="float-right">
+                        <ng-template #displayFavoriteStarTemplate>
+                            <img src="/assets/img/stars/Favorite-True.png" 
+                            srcset="/assets/img/stars/Favorite-True.png 350w, /assets/img/stars/Favorite-True@2x.png 700w, /assets/img/stars/Favorite-True@3x.png 1024w" alt="" class="float-right">
+                        </ng-template>
+                    </div>
+                </div>
             </div>
         </li>
-
-        <li class="list-group-item">
-            <div class="row w-100 align-items-center">
-               {{contact | json}}
+        <!-- /Contact Details page header  -->
+        <li class="list-group-item justify-content-center">
+            <div class="row">
+                <div class="col-12">
+                    <img *ngIf="contact?.largeImageURL" [src]="contact.largeImageURL" onError="this.src='/assets/img/profiles/User-Icon-Large@2x.png'" alt="" class="mx-auto d-block img-fluid">
+                </div>
+                <div class="col-12 text-center px-1">
+                     <h4 class="font-weight-bold">
+                         {{contact?.name}}
+                     </h4>
+                    <span class="text-muted">{{contact?.companyName}}</span>
+                </div>
             </div>
         </li>
+        <!-- Contact Phone numbers  -->
+        <li *ngFor="let phoneNumber of phoneNumbers"  class="list-group-item">
+            <div class="row w-100">
+                <div class="col text-muted">
+                    PHONE:
+                </div>
+                <div class="w-100"></div>
+                <div class="col-6">
+                    <div class="text-left font-weight-bold">
+                        {{phoneNumber.number}}
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="text-right">
+                        {{phoneNumber.phoneType | titlecase}}
+                    </div>
+                </div>
+            </div>
+        </li>
+        <!-- /Contact Phone numbers -->
+        <!-- Address info  -->
+        <li *ngIf="contact?.address" class="list-group-item">
+            <div class="row w-100">
+                <div class="col d-block text-muted">
+                    ADDRESS:
+                </div>
+                <div class="w-100"></div>
+                <div class="col font-weight-bold">
+                    <div class="">
+                        {{contact.address.street}}
+                    </div>
+                    <div class="">
+                        {{contact.address.city}}, {{contact.address.state}} {{contact.address.zipCode}}, {{contact.address.country}}
+                    </div>
+                </div>
+            </div>
+        </li>
+        <!-- /Address info -->
+        <!-- Birthdate info  -->
+        <li *ngIf="contact?.birthdate" class="list-group-item">
+            <div class="row w-100">
+                <div class="col d-block text-muted">
+                    BIRTHDATE:
+                </div>
+                <div class="w-100"></div>
+                <div class="col font-weight-bold">
+                    {{dateFromString | date:'longDate'}}
+                </div>
+            </div>
+        </li>
+        <!-- /Birthdate info  -->
+        <!-- Email info -->
+        <li *ngIf="contact?.emailAddress" class="list-group-item">
+            <div class="row w-100">
+                <div class="col d-block text-muted">
+                    EMAIL:
+                </div>
+                <div class="w-100"></div>
+                <div class="col font-weight-bold">
+                    {{contact.emailAddress}}
+                </div>
+            </div>
+        </li>
+        <!-- /Email info -->
     </ul>
 </div>

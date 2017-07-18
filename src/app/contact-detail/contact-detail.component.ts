@@ -1,16 +1,27 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { Contact } from '../model';
 import { ContactsService } from '../contacts.service';
+
+
+interface IPhoneNumbers {
+    phoneType: string;
+    number: string;
+}
 
 @Component({
   selector: 'app-contact-detail',
   templateUrl: './contact-detail.component.html',
   styleUrls: ['./contact-detail.component.scss']
 })
-export class ContactDetailComponent implements OnInit {
+export class ContactDetailComponent implements OnInit,OnDestroy {
   contact: Contact;
+  phoneNumbers: IPhoneNumbers[];
+  dateFromString: Date;
+
+
+  src: string = "/assets/img/profiles/User-Icon-Large@2x.png";
   
   private id: any;
 
@@ -29,6 +40,10 @@ export class ContactDetailComponent implements OnInit {
       }
     }
 
+  ngOnDestroy () {
+    
+  }
+
   private getContact(){
     this.contactsService.getContact(this.id)
       .subscribe(contact => this.setDisplayContact(contact));
@@ -42,9 +57,35 @@ export class ContactDetailComponent implements OnInit {
   private setDisplayContact(contact: Contact) {
     if (contact) {
       this.contact = contact;
+      this.setPhoneNumbers(this.contact.phone);
+      this.setDate(this.contact.birthdate);
     } else {
-      // this.gotoContacts();
+      this.gotoContacts();
     }
+  }
+
+  private setPhoneNumbers (phoneObj: any) {
+    if (phoneObj) {
+      let array = [];
+      Object.keys(phoneObj).forEach( key => {
+        array.push({
+          phoneType: key, 
+          number: phoneObj[key]
+        });
+      });
+      this.phoneNumbers = array;
+    }
+  }
+
+  private setDate(birthdate: string) {
+    if (birthdate != null || undefined) {
+      birthdate += " 12:00:00 GMT";
+      this.dateFromString = new Date(birthdate);
+    }
+  }
+
+  toggleFavorite() {
+    this.contact.isFavorite = !this.contact.isFavorite;
   }
 
 }

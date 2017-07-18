@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
 import { ContactsService } from '../contacts.service';
@@ -10,7 +10,7 @@ import { Contact } from '../model';
   templateUrl: './contacts-list.component.html',
   styleUrls: ['./contacts-list.component.scss']
 })
-export class ContactsListComponent implements OnInit {
+export class ContactsListComponent implements OnInit,OnDestroy {
   contacts: Observable<Contact[]>;
   selectedContact: Contact;
 
@@ -20,6 +20,10 @@ export class ContactsListComponent implements OnInit {
     this.contacts = this.contactsService
       .getContacts()
       .map(items => items.sort(this.compareFn));
+  }
+
+  ngOnDestroy() {
+    
   }
 
   select(contact: Contact) {
