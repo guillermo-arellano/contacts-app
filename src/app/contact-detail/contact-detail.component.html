@@ -33,20 +33,22 @@
         </li>
         <!-- Contact Phone numbers  -->
         <li *ngFor="let phoneNumber of phoneNumbers"  class="list-group-item">
-            <div class="row">
-                <div class="col d-block text-muted">
+            <div class="row w-100">
+                <div class="col text-muted">
                     PHONE:
                 </div>
-            </div>
-            <div class="w-100"></div>
-                <div class="col">
-                    <div class="d-inline text-left font-weight-bold">
+                <div class="w-100"></div>
+                <div class="col-6">
+                    <div class="text-left font-weight-bold">
                         {{phoneNumber.number}}
                     </div>
-                    <div class="d-inline text-right">
-                        {{phoneNumber.phoneType}}
+                </div>
+                <div class="col-6">
+                    <div class="text-right">
+                        {{phoneNumber.phoneType | titlecase}}
                     </div>
                 </div>
+            </div>
         </li>
         <!-- /Contact Phone numbers -->
         <!-- Address info  -->
