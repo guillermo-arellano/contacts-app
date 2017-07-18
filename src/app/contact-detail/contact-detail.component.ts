@@ -10,7 +10,7 @@ import { ContactsService } from '../contacts.service';
   styleUrls: ['./contact-detail.component.scss']
 })
 export class ContactDetailComponent implements OnInit {
-  @Input() contact: Contact;
+  contact: Contact;
   
   private id: any;
 

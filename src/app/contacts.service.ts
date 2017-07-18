@@ -13,7 +13,7 @@ export class ContactsService {
 
   getContact(id: number) {  
     return this.getContacts()
-      .map(contacts => contacts.find(contact => contact.id === id));
+      .map(contacts => contacts.find(contact => +contact.id === id));
   }
 
   getContacts() {
