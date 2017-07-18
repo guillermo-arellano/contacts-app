@@ -1,6 +1,7 @@
 <!-- Contact screen  -->
 <div id="contact-detail" class="panel-collapse collapse show" aria-expanded="true">
     <ul class="list-group pull-down" id="contact-list">
+        <!-- Contact Details page header  -->
         <li class="list-group-item list-group-item-header">
             <div class="row pt-3 align-items-center">
                 <a href=""  [routerLink]="['/contacts-list']">
@@ -12,10 +13,18 @@
                 </a>
             </div>
         </li>
-
-        <li class="list-group-item">
-            <div class="row w-100 align-items-center">
-               {{contact | json}}
+        <!-- /Contact Details page header  -->
+        <li class="list-group-item justify-content-center">
+            <div class="row">
+                <div class="col-12">
+                    <img [src]="contact.largeImageURL" onError="this.src='/assets/img/profiles/User-Icon-Large@2x.png'" alt="" class="mx-auto d-block img-fluid">
+                </div>
+                <div class="col-12 text-center px-1">
+                     <h4 class="font-weight-bold">
+                         {{contact.name}}
+                     </h4>
+                    <span class="text-muted">{{contact.companyName}}</span>
+                </div>
             </div>
         </li>
     </ul>

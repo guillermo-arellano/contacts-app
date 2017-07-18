@@ -11,6 +11,7 @@ import { ContactsService } from '../contacts.service';
 })
 export class ContactDetailComponent implements OnInit {
   contact: Contact;
+  src: string = "/assets/img/profiles/User-Icon-Large@2x.png";
   
   private id: any;
 
@@ -43,7 +44,7 @@ export class ContactDetailComponent implements OnInit {
     if (contact) {
       this.contact = contact;
     } else {
-      // this.gotoContacts();
+      this.gotoContacts();
     }
   }
 
