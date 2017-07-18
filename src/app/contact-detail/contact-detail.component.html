@@ -21,7 +21,7 @@
         <li class="list-group-item justify-content-center">
             <div class="row">
                 <div class="col-12">
-                    <img [src]="contact?.largeImageURL" onError="this.src='/assets/img/profiles/User-Icon-Large@2x.png'" alt="" class="mx-auto d-block img-fluid">
+                    <img *ngIf="contact?.largeImageURL" [src]="contact.largeImageURL" onError="this.src='/assets/img/profiles/User-Icon-Large@2x.png'" alt="" class="mx-auto d-block img-fluid">
                 </div>
                 <div class="col-12 text-center px-1">
                      <h4 class="font-weight-bold">
