@@ -10,18 +10,32 @@ let contactsUrl = CONFIG.baseUrls.contacts;
 
 @Injectable()
 export class ContactsService {
-  // private _contacts: <Contact[]>;
-
-  constructor(private http: Http) { }
-
-  getContact(id: number) {  
-    return this.getContacts()
-      .map(contacts => contacts.find(contact => +contact.id === id));
+  contacts: Observable<Contact[]>;
+  private _contacts: BehaviorSubject<Contact[]>;
+  private dataStore: {
+    contacts: Contact[];
   }
+
+  constructor(private http: Http) { 
+    this.dataStore = { contacts: [] };
+    this._contacts = <BehaviorSubject<Contact[]>>new BehaviorSubject([]);
+    this.contacts = this._contacts.asObservable();
+
+  }
+
+  // getContact(id: number) {  
+  //   return this.getContacts()
+  //     .map(contacts => contacts.find(contact => +contact.id === id));
+  // }
 
   getContacts() {
     return this.http
       .get(contactsUrl)
-      .map((response: Response) => <Contact[]>response.json());
+      .map((response: Response) => <Contact[]>response.json())
+      .subscribe( data => {
+          this.dataStore.contacts = data;
+          this._contacts.next(Object.assign({}, this.dataStore).contacts);
+        },
+        error => console.log("Could not load all Contacts"));
   }
 }

@@ -17,9 +17,10 @@ export class ContactsListComponent implements OnInit,OnDestroy {
   constructor(private contactsService: ContactsService) { }
 
   ngOnInit() {
-    this.contacts = this.contactsService
-      .getContacts()
+    this.contacts = this.contactsService.contacts
       .map(items => items.sort(this.compareFn));
+
+    this.contactsService.getContacts();
   }
 
   ngOnDestroy() {

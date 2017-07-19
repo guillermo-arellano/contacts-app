@@ -31,23 +31,23 @@ export class ContactDetailComponent implements OnInit,OnDestroy {
     private router: Router) { }
 
   ngOnInit() {
-    if (!this.contact){
-      this.route
-          .params
-          .map(params => params['id'])
-          .do(id => this.id = +id)
-          .subscribe(id => this.getContact());
-      }
+    // if (!this.contact){
+    //   this.route
+    //       .params
+    //       .map(params => params['id'])
+    //       .do(id => this.id = +id)
+    //       .subscribe(id => this.getContact());
+    //   }
     }
 
   ngOnDestroy () {
     
   }
 
-  private getContact(){
-    this.contactsService.getContact(this.id)
-      .subscribe(contact => this.setDisplayContact(contact));
-  }
+  // private getContact(){
+  //   this.contactsService.getContact(this.id)
+  //     .subscribe(contact => this.setDisplayContact(contact));
+  // }
 
   private gotoContacts() {
     let route = ['/contacts-list'];
