@@ -10,18 +10,42 @@ let contactsUrl = CONFIG.baseUrls.contacts;
 
 @Injectable()
 export class ContactsService {
-  // private _contacts: <Contact[]>;
+  contacts: Observable<Contact[]>;
+  private _contacts: BehaviorSubject<Contact[]>;
+  private dataStore: {
+    contacts: Contact[];
+  }
 
-  constructor(private http: Http) { }
-
-  getContact(id: number) {  
-    return this.getContacts()
-      .map(contacts => contacts.find(contact => +contact.id === id));
+  constructor(private http: Http) { 
+    this.dataStore = { contacts: [] };
+    this._contacts = <BehaviorSubject<Contact[]>>new BehaviorSubject([]);
+    this.contacts = this._contacts.asObservable();
   }
 
   getContacts() {
-    return this.http
-      .get(contactsUrl)
-      .map((response: Response) => <Contact[]>response.json());
+    if (this.dataStore.contacts.length !== 0) {
+      return this._contacts.next(Object.assign({}, this.dataStore).contacts);
+    } else {
+      return this.http
+        .get(contactsUrl)
+        .map((response: Response) => <Contact[]>response.json())
+        .subscribe( data => {
+            this.dataStore.contacts = data;
+            this._contacts.next(Object.assign({}, this.dataStore).contacts);
+          },
+          error => console.log("Could not load all Contacts"));
+    }
+  }
+
+  getContact(id: number) {  
+    return this.dataStore.contacts.find(contact => +contact.id == id);
+  }
+
+  updateContact(contact: Contact) {
+    this.dataStore.contacts.forEach((item, index) => {
+      if (item.id === contact.id) {
+        this.dataStore.contacts[index] = contact;
+      }
+    });
   }
 }
