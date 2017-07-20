@@ -81,6 +81,7 @@ export class ContactDetailComponent implements OnInit {
 
   toggleFavorite() {
     this.contact.isFavorite = !this.contact.isFavorite;
+    this.contactsService.updateContact(this.contact);
   }
 
 }

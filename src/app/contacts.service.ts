@@ -22,10 +22,6 @@ export class ContactsService {
     this.contacts = this._contacts.asObservable();
   }
 
-  getContact(id: number) {  
-    return this.dataStore.contacts.find(contact => +contact.id == id);
-  }
-
   getContacts() {
     if (this.dataStore.contacts.length !== 0) {
       return this._contacts.next(Object.assign({}, this.dataStore).contacts);
@@ -39,5 +35,17 @@ export class ContactsService {
           },
           error => console.log("Could not load all Contacts"));
     }
+  }
+
+  getContact(id: number) {  
+    return this.dataStore.contacts.find(contact => +contact.id == id);
+  }
+
+  updateContact(contact: Contact) {
+    this.dataStore.contacts.forEach((item, index) => {
+      if (item.id === contact.id) {
+        this.dataStore.contacts[index] = contact;
+      }
+    });
   }
 }
