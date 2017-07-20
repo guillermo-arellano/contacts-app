@@ -20,22 +20,24 @@ export class ContactsService {
     this.dataStore = { contacts: [] };
     this._contacts = <BehaviorSubject<Contact[]>>new BehaviorSubject([]);
     this.contacts = this._contacts.asObservable();
-
   }
 
-  // getContact(id: number) {  
-  //   return this.getContacts()
-  //     .map(contacts => contacts.find(contact => +contact.id === id));
-  // }
+  getContact(id: number) {  
+    return this.dataStore.contacts.find(contact => +contact.id == id);
+  }
 
   getContacts() {
-    return this.http
-      .get(contactsUrl)
-      .map((response: Response) => <Contact[]>response.json())
-      .subscribe( data => {
-          this.dataStore.contacts = data;
-          this._contacts.next(Object.assign({}, this.dataStore).contacts);
-        },
-        error => console.log("Could not load all Contacts"));
+    if (this.dataStore.contacts.length !== 0) {
+      return this._contacts.next(Object.assign({}, this.dataStore).contacts);
+    } else {
+      return this.http
+        .get(contactsUrl)
+        .map((response: Response) => <Contact[]>response.json())
+        .subscribe( data => {
+            this.dataStore.contacts = data;
+            this._contacts.next(Object.assign({}, this.dataStore).contacts);
+          },
+          error => console.log("Could not load all Contacts"));
+    }
   }
 }
