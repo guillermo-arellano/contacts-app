@@ -11,7 +11,7 @@
             <div class="row w-100 align-items-center">
                 <div class="col-4 px-0">
                     <a href="" [routerLink]="['/contact', contact.id]">
-                        <img [src]="contact.smallImageURL" srcset="{{contact.smallImageURL}} 60w, {{contact.smallImageURL}} 120w, {{contact.smallImageURL}} 180w" sizes="(max-width: 576px) 60px, (max-width: 768px) 120px, 180px" *ngIf="contact.smallImageURL;else placeholderImage" class="mx-auto d-block img-fluid" >
+                        <img [src]="contact.smallImageURL" *ngIf="contact.smallImageURL;else placeholderImage" class="mx-auto d-block img-fluid resize" >
                         <!--onError="this.src='/assets/img/profiles/User-Icon-Small@2x.png'"  -->
                         <ng-template #placeholderImage>
                             <img src="/assets/img/profiles/User-Icon-Small.png" 
@@ -41,9 +41,8 @@
             <div class="row w-100 align-items-center">
                 <div class="col-4 px-0">
                     <a href="" [routerLink]="['/contact', contact.id]">
-                        <img [src]="contact.smallImageURL" srcset="{{contact.smallImageURL}} 60w, {{contact.smallImageURL}} 120w, {{contact.smallImageURL}} 180w" sizes="(max-width: 576px) 60px, (max-width: 768px) 120px, 180px" *ngIf="contact.smallImageURL;else placeholderImage" class="mx-auto d-block img-fluid">
+                        <img [src]="contact.smallImageURL" *ngIf="contact.smallImageURL;else placeholderImage" class="mx-auto d-block img-fluid resize">
                         <!--
-                            srcset="{{contact.smallImageURL}} 60w, {{contact.smallImageURL}} 120w, {{contact.smallImageURL}} 180w" sizes="(max-width: 576px) 60px, (max-width: 768px) 120px, 180px"
                             onError="this.src='/assets/img/profiles/User-Icon-Small@2x.png'"  -->
                         <ng-template #placeholderImage>
                         <img src="/assets/img/profiles/User-Icon-Small.png" 
