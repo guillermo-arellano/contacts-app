@@ -1,0 +1,10 @@
+
+// In case returned image is too large, need to resize to stay within 120 px width
+@media (min-width: 450px) {
+    img.resize {
+        width: auto;
+        height: auto;
+        max-width: 120px;
+        max-height: auto;
+    }
+}
