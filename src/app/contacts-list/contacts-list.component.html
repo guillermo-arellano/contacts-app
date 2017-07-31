@@ -11,8 +11,7 @@
             <div class="row w-100 align-items-center">
                 <div class="col-4 px-0">
                     <a href="" [routerLink]="['/contact', contact.id]">
-                        <img [src]="contact.smallImageURL" *ngIf="contact.smallImageURL;else placeholderImage" class="mx-auto d-block img-fluid resize" >
-                        <!--onError="this.src='/assets/img/profiles/User-Icon-Small@2x.png'"  -->
+                        <img [src]="contact.smallImageURL" onError="this.src='/assets/img/profiles/User-Icon-Small@2x.png'" *ngIf="contact.smallImageURL;else placeholderImage" class="mx-auto d-block img-fluid resize" >
                         <ng-template #placeholderImage>
                             <img src="/assets/img/profiles/User-Icon-Small.png" 
                             srcset="/assets/img/profiles/User-Icon-Small.png 60w, /assets/img/profiles/User-Icon-Small@2x.png 120w, /assets/img/profiles/User-Icon-Small@3x.png 180w" sizes="(max-width: 576px) 60px, (max-width: 768px) 120px, 180px" alt="" class="mx-auto d-block img-fluid"> 
@@ -41,12 +40,10 @@
             <div class="row w-100 align-items-center">
                 <div class="col-4 px-0">
                     <a href="" [routerLink]="['/contact', contact.id]">
-                        <img [src]="contact.smallImageURL" *ngIf="contact.smallImageURL;else placeholderImage" class="mx-auto d-block img-fluid resize">
-                        <!--
-                            onError="this.src='/assets/img/profiles/User-Icon-Small@2x.png'"  -->
+                        <img [src]="contact.smallImageURL" onError="this.src='/assets/img/profiles/User-Icon-Small@2x.png'" *ngIf="contact.smallImageURL;else placeholderImage" class="mx-auto d-block img-fluid resize">
                         <ng-template #placeholderImage>
-                        <img src="/assets/img/profiles/User-Icon-Small.png" 
-                            srcset="/assets/img/profiles/User-Icon-Small.png 60w, /assets/img/profiles/User-Icon-Small@2x.png 120w, /assets/img/profiles/User-Icon-Small@3x.png 180w" sizes="(max-width: 576px) 60px, (max-width: 768px) 120px, 180px" alt="" class="mx-auto d-block img-fluid"> 
+                            <img src="/assets/img/profiles/User-Icon-Small.png" 
+                                srcset="/assets/img/profiles/User-Icon-Small.png 60w, /assets/img/profiles/User-Icon-Small@2x.png 120w, /assets/img/profiles/User-Icon-Small@3x.png 180w" sizes="(max-width: 576px) 60px, (max-width: 768px) 120px, 180px" alt="" class="mx-auto d-block img-fluid"> 
                         </ng-template> 
                     </a>
                 </div>
