@@ -8,3 +8,22 @@
         max-height: auto;
     }
 }
+
+// Reduce the image font sizes on Contacts List when width <= 450px
+@media (max-width: 450px) {
+    h3, .h3 {
+        font-size: 0.875rem;
+    }
+
+    .name.lead {
+        font-size: .75rem;
+    }
+
+    .subheader {
+        font-size: .5rem;
+    }
+    
+    .company-name {
+        font-size: .5rem;
+    }
+}
