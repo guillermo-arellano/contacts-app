@@ -2,3 +2,18 @@
     position: absolute;
     right: .5rem;
 }
+
+// Reduce the image font sizes on Contacts List when width <= 450px
+@media (max-width: 450px) {
+    h3, .h3, h4, .h4 {
+        font-size: 0.875rem;
+    }
+
+    h3, .h3 {
+        font-size: 0.875rem;
+    }
+    .list-group-item {
+        font-size: .75rem;
+    }
+
+}
