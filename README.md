@@ -2,6 +2,8 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.2.0.
 
+App version: 1.0.1 (July 2017)
+
 ## Prerequisites
 
 Both the CLI and generated project have dependencies that require Node 6.9.0 or higher, together with NPM 3 or higher. Click the [link](https://nodejs.org/en/) and go install Node/NPM before you continue.
