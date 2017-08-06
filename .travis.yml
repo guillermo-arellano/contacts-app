@@ -11,4 +11,4 @@ before_install:
 
 install: npm install
 
-script: test
+script: ng test
