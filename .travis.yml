@@ -44,10 +44,12 @@ deploy:
   - provider: azure_web_apps
     verbose: true
     skip_cleanup: true
-    slot: dev
-    on: develop
+    slot: ng2contactsapp-dev
+    on: 
+      branch: develop
   - provider: azure_web_apps
     verbose: true
     skip_cleanup: true
-    slot: staging
-    on: release
+    slot: ng2contactsapp-staging
+    on: 
+      branch: release
