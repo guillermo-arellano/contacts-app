@@ -41,12 +41,13 @@ script:
 before_deploy: "echo 'ready?'"
 
 deploy:
-  skip_cleanup: true
   - provider: azure_web_apps
     verbose: true
+    skip_cleanup: true
     slot: dev
     on: develop
   - provider: azure_web_apps
     verbose: true
+    skip_cleanup: true
     slot: staging
     on: release
