@@ -5,6 +5,11 @@ language: node_js
 node_js:
   - "6"
 
+branches:
+  only:
+  - develop
+  - release
+
 cache:
   directories:
     - "node_modules"
@@ -30,3 +35,18 @@ install:
 
 script:
   - npm run ng test -- --single-run=true --browsers Chrome
+  - if [ "$TRAVIS_BRANCH" == "release" ]; then npm run ng build --prod; fi
+  - if [ "$TRAVIS_BRANCH" == "develop" ]; then npm run ng build --dev; fi
+
+before_deploy: "echo 'ready?'"
+
+deploy:
+  skip_cleanup: true
+  - provider: azure_web_apps
+    verbose: true
+    slot: dev
+    on: develop
+  - provider: azure_web_apps
+    verbose: true
+    slot: staging
+    on: release
