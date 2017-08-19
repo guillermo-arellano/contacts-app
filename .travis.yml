@@ -51,3 +51,5 @@ deploy:
     verbose: true
     skip_cleanup: true
     slot: ng2contactsapp-staging
+    on:
+      all_branches: true
