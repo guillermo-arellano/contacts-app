@@ -50,6 +50,6 @@ deploy:
   - provider: azure_web_apps
     verbose: true
     skip_cleanup: true
-    slot: ng2contactsapp-staging
+    slot: ng2contactsapp-uat
     on:
       all_branches: true
