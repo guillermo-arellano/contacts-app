@@ -8,7 +8,7 @@ node_js:
 branches:
   only:
   - develop
-  - release
+  - /^release\/.*$/
 
 cache:
   directories:
@@ -35,7 +35,7 @@ install:
 
 script:
   - npm run ng test -- --single-run=true --browsers Chrome
-  - if [ "$TRAVIS_BRANCH" == "release" ]; then npm run ng build --prod; fi
+  - if [ "$TRAVIS_BRANCH" =~ (^release\/.*$) ]; then npm run ng build --prod; fi
   - if [ "$TRAVIS_BRANCH" == "develop" ]; then npm run ng build --dev; fi
 
 before_deploy: "echo 'ready?'"
@@ -52,4 +52,4 @@ deploy:
     skip_cleanup: true
     slot: ng2contactsapp-staging
     on: 
-      branch: release
+      branch: ^release\/.*$
