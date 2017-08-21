@@ -35,8 +35,8 @@ install:
 
 script:
   - npm run ng test -- --single-run=true --browsers Chrome
-  - if [ "$TRAVIS_BRANCH" =~ ^release\/.*$ ]; then npm run ng build --prod; fi
-  - if [ "$TRAVIS_BRANCH" == "develop" ]; then npm run ng build --dev; fi
+  - if [[ $TRAVIS_BRANCH =~ ^release\/.*$ ]]; then ng build --prod; fi
+  - if [ "$TRAVIS_BRANCH" == "develop" ]; then ng build --dev; fi
 
 before_deploy: "echo 'ready?'"
 
@@ -50,4 +50,6 @@ deploy:
   - provider: azure_web_apps
     verbose: true
     skip_cleanup: true
-    slot: ng2contactsapp-staging
+    slot: ng2contactsapp-uat
+    on:
+      all_branches: true
