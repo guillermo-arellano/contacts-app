@@ -35,8 +35,8 @@ install:
 
 script:
   - npm run ng test -- --single-run=true --browsers Chrome
-  - if [[ $TRAVIS_BRANCH =~ ^release\/.*$ ]]; then npm run ng build --prod; fi
-  - if [ "$TRAVIS_BRANCH" == "develop" ]; then npm run ng build --dev; fi
+  - if [[ $TRAVIS_BRANCH =~ ^release\/.*$ ]]; then ng build --prod; fi
+  - if [ "$TRAVIS_BRANCH" == "develop" ]; then ng build --dev; fi
 
 before_deploy: "echo 'ready?'"
 
